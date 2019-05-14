@@ -8,11 +8,8 @@ NexT.utils = NexT.$u = {
   wrapImageWithFancyBox: function() {
     $('.content img')
       .not(':hidden')
-<<<<<<< HEAD:source/js/src/utils.js
       // 注释此行是为了解决图片并排不能放大预览的问题。
       // .not('.group-picture img, .post-gallery img')
-=======
->>>>>>> c2f33fc76b500770e266c1c16f028807967cd121:source/js/utils.js
       .each(function() {
         var $image = $(this);
         var imageTitle = $image.attr('title') || $image.attr('alt');
