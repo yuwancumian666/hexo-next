@@ -1,0 +1,188 @@
+---
+layout: post
+title: Linux基础
+date: 2018-01-08 00:00:00 +0300
+categories:
+- Linux
+tags: 
+- Linux命令
+---
+
+
+{% blockquote 泰戈尔, 飞鸟集 %}
+The sands in your way beg for your aong and your movement, dancing water. Will you carry the burden of their lameness? 
+	跳舞着的流水呀，在你途中的泥沙，要求你的歌声，你的流动呢。你肯挟瘸足的泥沙而俱下么？
+{% endblockquote %}
+
+<!-- more -->
+
+## Linux操作系统简介
+
+Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。
+
+Linux的特点：<br>
++ 安全、免费、开源
++ 多用户（完全的，区别于Windows），一个用户的操作不会影响到其他用户
++ 稳定、快速、占用资源少
++ Java、大数据环境抖默认支持 Linux
+
+### Linux 的版本
+
+1. 内核版：提供硬件抽象层、硬盘及文件系统控制及多任务功能的系统核心程序。就像手机的安卓系统一样，内核一般无法直接使用
+2. 发行版：由 Linux 内核与各种常用软件的集合产品。各个厂商会针对 Linux 内核发布自己的发行版
+    + redHat: 经典红帽系列(RedHat Enterprise Linux, RHEL)，拥有极强的性能与稳定性。*好，贵*
+    + CentOS: 把 RHEL 重新编译并发布的免费版本，具有广泛的使用人群。*好，免费*
+    + Fedora: 红帽公司发布的桌面版系统，用户可以免费体验到最新的技术或工具。
+    + openSUSE: 源自德国的一款著名的 Linux 系统，在全球范围内有着不错的声誉及市场占有率。
+    + Gentoo: 具有极高的自定制性，操作复杂，适合具有一定经验的人使用。
+    + Debian: 稳定性、安全性强，提供了免费的基础支持，可以良好地支持各种硬件架构
+    + Ubuntu：派生自 Debian 系列，对新款硬件具有极强的兼容能力。和 Fedora 都是极其出色的桌面系统。
+
+### 安装 Linux
+
+Linux 可以通过虚拟机 VMware Workstation 安装。虚拟机是能够让用户在一台物理机上模拟出多个操作系统的软件，安装 Linux 前需要设置 CPU 以支持虚拟化。在**任务管理器-性能-CPU**一栏右下角可以查看当前CPU是否支持虚拟化，若不支持则可去BIOS中设置。
+
+使用虚拟机的优点：不怕折腾，可以方便地还原到出错前的环境状态。
+
+## 使用
+
+### Linux 用户
+
+root 用户具有最高权限，其他用户直接是安全的
+
+### Linux 目录
+
+> / 根目录 <br>
+> /bin 存放必要的命令 <br>
+> /boot 存放内核以及启动所需的文件 <br>
+> /dev 存放设备文件 <br>
+> /etc 存放系统配置文件 <br>
+> /home 普通用户的宿主目录，用户数据存放在其主目录中 <br>
+> /lib 存放必要的运行库 <br>
+> /mnt 存放临时的映射文件系统，通常用来挂载使用。<br>
+> /proc 存放存储进程和系统信息 <br>
+> /root 超级用户的主目录 <br>
+> /sbin 存放系统管理程序 <br>
+> /tmp 存放临时文件 <br>
+> /usr 存放应用程序，命令程序文件、程序库、手册和其它文档。 <br>
+> /var 系统默认日志存放目录
+
+### 远程登陆
+
+由于 Linux 在远程服务器上，一般不能直接在上面操作，所以有各种各样的客户端软件用来远程连接 Linux，比如 XShell、MobaXterm等。
+
+**连接方法：** <br>
++ 要知道 Linux 的 IP 地址、用户名以及对应的密码
++ 虚拟机和本地机要能 ping 通
+
+**注意：**虚拟机开机是不启动网卡的，需要手动调成自动开机启动。
+
+### 修改 Nat 连接方式
+
+Nat 方式是给虚拟机一个独立的网卡，特点是稳定、IP不变。<br>
+虚拟机右键 -> 设置 -> 网络适配器 -> 右侧选自定义-vmnet8 -> 保存 <br>
+虚拟机 -> 编辑 -> 虚拟网络适配器 -> 更改设置 -> 将 net8 改为 NAT 模式 -> 保存
+
+-----------------------------------------------------------------------------
+
+### Linux 命令
+
+**Tip：** <br>
+命令查询[网址](http://man.linuxde.net/) ，此网站仅供参考<br>
+Tab 键是命令提示
+
+**基本语法：** *命令名 -选项 参数*
+
+
+#### [cd](http://man.linuxde.net/cd) 切换目录 ，注意区分相对路径和绝对路径的概念
+
+```shell
+cd /    根目录
+cd ~    家目录
+cd a/b/c
+cd /a/b/c
+cd ..    返回上级目录
+cd ../..    返回上两级目录
+cd -    返回进入此目录之前所在的目录
+```
+
+#### [ls](http://man.linuxde.net/ls) ll 查看目录
+
+``` shell
+ls 选项 -a 全部 包括隐藏文件 
+           -R 级联显示 
+ll 详细查询 -h kb显示文件大小
+``` 
+
+#### [mkdir](http://man.linuxde.net/mkdir) 创建文件夹
+
+``` shell
+mkdir  创建文件夹 
+mkdir -p 连续创建多层文件夹
+```
+
+#### [rm](http://man.linuxde.net/rm) 删除文件
+
+``` shell
+rm 删除文件 
+rm -r 删除文件夹
+``` 
+
+#### [cp](http://man.linuxde.net/cp) 复制文件
+
+**说明：** cp 命令可以复制到当前目录或其他目录，同时可以修改文件名
+``` shell
+cp 要复制的文件名 目标目录/文件名 
+cp -r 复制目录
+```
+
+#### [mv](http://man.linuxde.net/mv) 移动文件
+
+``` shell
+mv 选项 -参数
+```
+
+#### [touch](http://man.linuxde.net/touch) 创建/更新文件
+
+``` shell
+touch 文件名  
+    已存在的文件名 更新
+    Linux不分扩展名
+```
+
+#### [vi/vim](http://man.linuxde.net/vi) 文本编辑 
+
+``` shell
+i 写入模式 
+esc 编辑模式切换到命令模式 
+:-> wq 保存并退出 
+:-> q！强制退出 
+```
+
+#### [cat](http://man.linuxde.net/cat) 查看文本内容
+
+``` shell
+cat a 查看 a 的内容
+cat a >  b 将 a 的内容给 b
+cat a >> b 将 a 的内容追加给 b
+```
+
+#### [tar](http://man.linuxde.net/tar) 归档压缩 
+
+``` shell
+两个功能 一个压缩 一个是解压缩 
+选项  -c 压缩   
+      -x 解压缩
+      -f 文件 
+      -v 显示 
+压缩  tar -czvf 压缩后文件名 目标
+解压缩    tar -xzvf 目标名 
+            -xzvf 目标名 -C 目标目录
+```
+
+
+
+
+
+
+

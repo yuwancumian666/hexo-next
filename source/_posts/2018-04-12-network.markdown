@@ -1,0 +1,66 @@
+---
+layout: post
+title: 计算机网络
+subtitle: 爱哭的嘎达傻空了大概看到过
+date: 2018-03-18 00:00:00 +0800
+description: 这里记录的是牛客网刷题遇到的不会的东西
+categories:
+- 计算机网络
+tags: [计算机网络] 
+---
+
+{% blockquote 泰戈尔, 飞鸟集 %}
+	The sadness of my soul is her bride's veil. It waits to be lifted in the night. 
+	我灵魂里的忧郁就是她新婚的面纱。这面纱等候着在夜间卸去。
+{% endblockquote %}
+
+<!-- more -->
+
+### TCP/IP
+
+TCP连接建立的三次握手过程：TCP SYN、TCP SYNACK、TCP ACK。
+> 1. 第一次握手：客户端发送 syn 包（syn=j）到服务器，并进入 SYN_SEND 状态，等待服务器确认（SYN：Synchronize Sequence Numbers，同步序列编号）；
+> 2. 第二次握手：服务器收到 syn 包，必须确认客户端的 SYN（ack=j+1），同时自己也发送一个 SYN 包（syn=k），即 SYN+ACK 包，此时服务器进入 SYN_RECV 状态；
+> 3. 第三次握手：客户端收到服务器的 SYN+ACK 包，向服务器发送确认包 ACK（ack=k+1），此包发送完毕，服务端和客户端进入 ESTABLISHED 状态，完成三次握手
+
+IP 协议利用生存时间，控制数据传输的时延 <br>
+TCP 负责在数据传送之前将它们分割成 IP 包，然后在他们到达的时候将他们重组
+
+### 网络
+
+逻辑上讲，一个计算机网络是由**通信子网**和**资源子网**构成的。  <br>
+域名的组成：主机名.结构名.网络名 （例如：www.tsinghua.deu.cn中，www是主机名） <br>
+我国要求局用程控交换机的系统中断时间平均每年不超过3分钟 <br>
+
+
+### 套接字
+
+使用套接字时，网络上唯一的 IP 地址和端口号结合在一起，才能构成唯一的标识符
+
+
+### OSI体系
+
+传输层的主要功能是：建立端到端连接
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

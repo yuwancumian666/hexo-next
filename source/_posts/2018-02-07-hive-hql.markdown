@@ -1,0 +1,45 @@
+---
+layout: post
+title: HiveQL
+subtitle: 哈哈哈
+date: 2018-02-07 00:00:00 +0800
+categories:
+- 大数据
+- Hive
+tags: [Hive, 大数据] 
+---
+
+
+{% blockquote 泰戈尔, 飞鸟集 %}
+In my solitude of my heart i feel the sigh of this widowed evening veiled with mist and rain. 
+	这孤独的黄昏，幕着雾与雨，我在我的心的孤寂里，感受到它的叹息。
+{% endblockquote %}
+
+<!-- more -->
+
+[官方文档]()
+
+从业务角度来讲，HQL 应该实现的功能应当包括：
+1. 基本查询：全表查询、指定字段查询、按条件查询
+2. 统计查询：分组、按条件查询
+3. 嵌套查询
+4. 连接查询
+5. 分区、索引、视图
+
+---------------------------------
+
+1. 通过 HQL 语句可以看到一个表里能产生的业务
+2. 通过看出来的业务反推，如果你设计表设计成什么样才是符合业务需求的
+3. 掌握基本 HQL 语句的用法
+**注意：**类型转换问题，是否符合语法规律。
+在写程序时要格外注意 NULL 值：是没有值还是出错。
+数值溢出问题：-65534>65535 正确
+			 (-35534-65535)>0 出现错误
+计数器设计的很贴心，运行时会把优化的一些数据 
+4. 聚合函数 <===> MapReduce
+`hive(dbself)> set hive.map.aggr=true`
+`hive(dbself)> seltct count(\*) from employee;`
+set hive.map.aggr 为 True 时：
+优点：提高 HiveQL 聚合的执行性能，即将顶层的聚合操作放在 Map 阶段执行，减轻清洗阶段数据传输和 Reduce 阶段的执行时间，提升总体性能。
+缺点：该设置会消耗更多的内存
+顶层聚合操作(top-levelaggregation operation)，是指在 group by 语句之前的聚合操作。

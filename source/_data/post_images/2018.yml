@@ -1,0 +1,44 @@
+# 腾讯云 COS
+
+#---------------------------------------
+#---------------------------------------
+
+
+# github-pages/post-images
+thank-the-auther-home: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-01-04-722.jpg
+thank-the-auther-david-freeman: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-01-04-david-freeman.jpg
+for-MRdai-dai-daidai-1: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-01-26-daidai-1.PNG
+for-MRdai-dai-daidai-2: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-01-26-daidai-2.PNG
+crawling-magnet-the-pirate-bay-1: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-01-27-the-pirate-bay-1.png
+crawling-magnet-the-pirate-bay-2: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-01-27-the-pirate-bay-2.png
+cloud-dns-cloud-dns: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-01-28-cloud-dns.png
+cloud-dns-example1: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-01-28-example1.png
+cloud-dns-example2: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-01-28-example2.png
+cloud-dns-example3: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-01-28-example3.png
+bigdata-hbase-hbase-env: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-01-29-hbase-env.png
+word-cloud-sb: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-04-sb.jpg
+word-cloud-sb1: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-04-sb1.png
+word-cloud-sb2: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-04-sb2.png
+word-cloud-weibo-ch: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-04-weibo-ch.jpg
+word-cloud-weibo-en: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-04-weibo-en.jpg
+hive-type-of-data-array-id-userid: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-06-array-id-userid.jpg
+hive-type-of-data-array-ip-userid[1]: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-06-array-ip-userid%5B1%5D.jpg
+hive-type-of-data-array-length: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-06-array-length.jpg
+hive-type-of-data-array: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-06-array.jpg
+hive-type-of-data-map-1-all: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-06-map-1-all.jpg
+hive-type-of-data-map-1: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-06-map-1.jpg
+hive-type-of-data-map-2-all: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-06-map-2-all.jpg
+hive-type-of-data-map-2: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-06-map-2.jpg
+hive-type-of-data-map-different-info: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-06-map-different-info.jpg
+hive-type-of-data-struct-all: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-06-struct-all.jpg
+hive-type-of-data-struct: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-06-struct.jpg
+x-man-to-bingxin-apocalypse: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-23-apocalypse.jpg
+x-man-to-bingxin-days-of-future-past: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-23-days-of-future-past.jpg
+x-man-to-bingxin-deadpool: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-23-deadpool.jpg
+x-man-to-bingxin-first-class: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-23-first-class.jpg
+x-man-to-bingxin-the-last-stand: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-23-the-last-stand.jpg
+x-man-to-bingxin-wolverine: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-23-wolverine.jpg
+x-man-to-bingxin-wolverine2: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-23-wolverine2.jpg
+x-man-to-bingxin-wolverine3: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-23-wolverine3.jpg
+x-man-to-bingxin-x-man-2: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-23-x-man-2.jpg
+x-man-to-bingxin-x-man: https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2018-02-23-x-man.jpg
