@@ -8,6 +8,7 @@ categories:
 tags: 
 - LaTex
 - 字体 
+- 笔记
 ---
 
 {% cq %} 挖坑 {% endcq %}

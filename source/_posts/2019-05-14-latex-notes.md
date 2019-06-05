@@ -5,6 +5,7 @@ categories:
 - LaTex
 tags:
 - Latex
+- 笔记
 mathjax: true
 ---
 

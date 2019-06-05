@@ -7,6 +7,7 @@ category:
 tags: 
 - 前端
 - Electron-Vue
+- 笔记
 ---
 
 对于Electron的了解，还是开始于[Motrix](https://motrix.app/)，一个颜值极高的多功能下载工具。在GitHub项目页面看到了“Electron”一词，从此开始了废寝忘食的学习过程……

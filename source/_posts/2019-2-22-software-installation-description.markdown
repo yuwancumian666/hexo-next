@@ -11,6 +11,7 @@ tags:
 - LaTex
 - GitHub Pages
 - 软件
+- 笔记
 ---
 
 {% cq %} 先把坑都踩一遍是为了以后踩更多的坑。 {% endcq %}

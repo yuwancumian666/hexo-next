@@ -1,5 +1,5 @@
 ---
-title: Electron-Vue开发笔记——1
+title: Electron-Vue开发笔记——2
 date: 2019-04-08 14:54:37
 category: 
 - [Node.js]
@@ -8,6 +8,7 @@ tags:
 - 前端
 - echarts
 - Electron-Vue
+- 笔记
 ---
 
 在基本功能完成以后，开启debug模式。

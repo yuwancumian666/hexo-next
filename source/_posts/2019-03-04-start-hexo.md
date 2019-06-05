@@ -2,10 +2,11 @@
 title: Hexo——GitHub Pages搭建
 date: 2019-03-04 20:29:12
 category:
-- [模板]
+- Hexo
 tags: 
-- 问题
-- 示例
+- 笔记
+- Hexo
+- NexT
 comments: true
 ---
 
