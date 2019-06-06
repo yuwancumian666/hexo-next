@@ -77,11 +77,7 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: next  # landscape
 
-symbols_count_time:
-  symbols: true
-  time: true
-  total_symbols: true
-  total_time: true
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -89,3 +85,24 @@ deploy:
   type: git
   repo: https://github.com/yuwancumian666/yuwancumian666.github.io.git
 
+
+# ----------------------------------
+# 插件们
+# ----------------------------------
+# symbols_count_time 文章字数统计、阅读时长
+# https://github.com/theme-next/hexo-symbols-count-time
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+  exclude_codeblock: false
+
+# githubEmojis 添加对emoji的支持，使用GitHub Emojis API
+# https://github.com/crimx/hexo-filter-github-emojis
+githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: true
+  styles:
+  customEmojis:

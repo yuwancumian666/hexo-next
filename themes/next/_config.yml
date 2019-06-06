@@ -403,7 +403,8 @@ custom_logo:
 highlight_theme: normal
 
 # Enable "cheers" for archive page.
-cheers_enabled: true
+# cheers_enabled: true
+cheers: true
 
 
 # ---------------------------------------------------------------

@@ -1,5 +1,5 @@
 ---
-title: Hexo——GitHub Pages搭建
+title: GitHub Pages——Hexo配置笔记
 date: 2019-03-04 20:29:12
 category:
 - Hexo
@@ -31,7 +31,7 @@ hexo.extend.tag.register('variable', function(args) {
     console.log(args[0])
     console.log(hexo.config.url)
     console.log(hexo.config.data.iOS)
-    // return `<img src="` + args[0] + `" />`;
+    // return `img src="` + args[0] + `" /`;
     return ``+hexo.config.data.iOS;
   });
 {% endcodeblock %}
@@ -196,9 +196,31 @@ body {
 }
 {% endcode %}
 
+## jemoji
+给Hexo添加对表情的支持，使用的是[Github Emojis API](https://api.github.com/emojis)
+### 安装
+`$ npm install hexo-filter-github-emojis --save`
+### 选项
+在Hexo配置文件`_config.yml`中添加默认设置：
+``` yaml
+githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: true
+  styles:
+  customEmojis:
+```
+{% note info %}
+如果对`::`添加表情的方式不感冒，可以尝试使用`{% raw %}{% github_emoji sparkles %}{% endraw %}`方式添加表情:tada:
+{% endnote %}
+
+{% note info %}
+在front-matter中添加`no-emoji: true`可以禁用`::`的渲染，但`{% raw %}{% github_emoji sparkles %}{% endraw %}`不会被禁用{% github_emoji sparkles %}
+{% endnote %}
+
 # 标签插件
 
-## 笔记及其样式
+## bootstrap note
 
 使用方式
 `{% raw %}{% note class_name %} Content (md partial supported) {% endnote %}{% endraw %}`
@@ -216,7 +238,8 @@ body {
 `{% raw %}{% gist gist_id file_name %}{% endraw %}`
 
 {% fold 点击查看gist %}
-{% gist 19169c91a19ab7580e4678e4ed25375f extensions.json %}
+网络原因打不开gist
+<% gist 19169c91a19ab7580e4678e4ed25375f extensions.json %>
 {% endfold %}
 
 ## swig标签
@@ -234,5 +257,7 @@ content
 ## 浮动插入图片，[像这个](https://notes.iissnan.com/2016/next-documentations-reload/#前季剧情回顾)
 
 ## 无法访问404
-
 只能以`localhost:4000/404.html`的方式访问
+
+## 本页侧边栏
+滑到最上方，然后向右看:point_right:
