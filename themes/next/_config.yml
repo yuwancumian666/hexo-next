@@ -146,7 +146,8 @@ menu:
   categories: /categories/ || th
   archives: /archives/ || archive
   about: /about/ || user
-  nodeppt: /nodeppt || desktop
+  # nodeppt: /nodeppt || desktop
+  smile: /smile || smile-o
   # schedule: /schedule/ || calendar
   # sitemap: /sitemap.xml || sitemap
   # commonweal: /404/ || heartbeat
