@@ -28,7 +28,7 @@ chmod +x shadowsocksR.sh
 ./shadowsocksR.sh uninstall
 
 # 安装 BBR
-wget --no-check-certificate https://raw.githubusercontent.com/yuwancumian666/how-to-start-a-new-VPS/master/tcp.sh
+wget --no-check-certificate https://raw.githubusercontent.com/moeext/how-to-start-a-new-VPS/master/tcp.sh
 chmod +x tcp.sh
 ./tcp.sh
 ```

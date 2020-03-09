@@ -108,6 +108,6 @@ def main(name_list):
 
 **总结**
 
-移步[Github](https://github.com/yuwancumian666/Spiders/tree/master/PirateBay)看代码，有惊喜
+移步[Github](https://github.com/moeext/Spiders/tree/master/PirateBay)看代码，有惊喜
 
 这好像是第一次比较正式的爬虫，代码比较 low，好在能用么么哒(づ￣ 3￣)づ

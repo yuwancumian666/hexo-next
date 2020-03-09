@@ -36,7 +36,7 @@ tags:
 ### 版权信息
 
 在我的GitHub里有现成的版权信息文件: “file_version_info.txt”，修改后即可使用。
-<a href="https://github.com/yuwancumian666/Python-Demo/tree/master/Fuck%20RedSpider" target="_blank">传送门</a><br>
+<a href="https://github.com/moeext/Python-Demo/tree/master/Fuck%20RedSpider" target="_blank">传送门</a><br>
 利用 pyinstaller 内置的 grab_verson.py 或 pyi-grab_version.exe工具也可以自己获取其他 exe 文件的版权信息，修改后使用。
 
 + grab_version.py: 目录:“Python27\Lib\site-packages\PyInstaller\utils\cliutils”，用法: ```python grab_version.py exe-file``` 

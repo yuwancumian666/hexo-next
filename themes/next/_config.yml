@@ -182,7 +182,7 @@ site_state: true
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
-  GitHub: https://github.com/yuwancumian666 || github
+  GitHub: https://github.com/moeext || github
   E-Mail: mailto:yuwancumian666@gmail.com || envelope
   微博: http://weibo.com/starmon || weibo
   微信: /images/wechat.jpg || weixin
@@ -207,7 +207,7 @@ social_icons:
 # Usage: `permalink || title`
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the title and aria-label name.
-github_banner: https://github.com/yuwancumian666 || Follow me on GitHub
+github_banner: https://github.com/moeext || Follow me on GitHub
 
 # Blog rolls
 links_icon: link
@@ -334,7 +334,7 @@ codeblock:
   border_radius:
   # Add copy button on codeblock
   copy_button:
-    enable: true
+    enable: false
     # Show text copy result
     show_result: false
     # Style: only 'flat' is currently available, leave it blank if you prefer default theme
@@ -402,7 +402,7 @@ custom_logo:
 # Code Highlight theme
 # Available values: normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night bright
 
 # Enable "cheers" for archive page.
 # cheers_enabled: true
@@ -624,11 +624,11 @@ gitment:
 # Reference: https://asdfv1929.github.io/2018/01/20/gitalk/, https://liujunzhou.top/2018/8/10/gitalk-error/
 gitalk:
   enable: true
-  github_id: yuwancumian666 # Github repo owner
-  repo: yuwancumian666.github.io # Repository name to store issues.
+  github_id: moeext # Github repo owner
+  repo: moeext.github.io # Repository name to store issues.
   client_id: d47b6b10b895d42792cf # Github Application Client ID
   client_secret: 73523754b433a4b4bb25b26a535300d572144f00 # Github Application Client Secret
-  admin_user: yuwancumian666 # GitHub repo owner and collaborators, only these guys can initialize github issues
+  admin_user: moeext # GitHub repo owner and collaborators, only these guys can initialize github issues
   distraction_free_mode: true # Facebook-like distraction free mode
 
 # Baidu Share

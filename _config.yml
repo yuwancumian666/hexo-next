@@ -7,13 +7,13 @@ title: Hummer's Blog
 subtitle: 哝，你的鱼丸~
 description: 她的热切的脸，如夜雨似的，搅扰着我的梦魂。
 keywords: Hummer
-author: 鱼丸粗面666
+author: MoeexT
 language: zh-CN
 timezone: UTC
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://yuwancumian666.github.io/
+url: https://moeext.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -84,7 +84,7 @@ theme: next  # landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/yuwancumian666/yuwancumian666.github.io.git
+  repo: https://github.com/moeext/moeext.github.io.git
 
 
 # ----------------------------------

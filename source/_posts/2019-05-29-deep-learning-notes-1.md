@@ -1,5 +1,5 @@
 ---
-title: 深度学习笔记——1
+title: 深度学习笔记
 date: 2019-05-29 00:36:26
 categories:
 - 深度学习
@@ -7,6 +7,7 @@ tags:
 - TensorFlow
 - Keras
 - 深度学习
+- 笔记
 ---
 
 {% blockquote %}
@@ -14,6 +15,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 {% endblockquote %}
 
 <!-- more -->
+
+# 模型
+
+## Dropout层
+
+Dropout在训练过程中每次更新参数时按一定概率（rate）随机断开输入神经元，Dropout层用于防止过拟合。
+
 
 # 调整参数
 

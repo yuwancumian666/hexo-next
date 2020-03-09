@@ -23,8 +23,8 @@ def parse(string, yml_data):
 
 
 def replace_year_book():
-    yml = open("Hexo/yuwancumian666.github.io/source/_data/year_book/January.yml", 'r')
-    md = open("Hexo/yuwancumian666.github.io/source/_posts/2019-01-19-first-month.markdown", 'r+')
+    yml = open("Hexo/moeext.github.io/source/_data/year_book/January.yml", 'r')
+    md = open("Hexo/moeext.github.io/source/_posts/2019-01-19-first-month.markdown", 'r+')
     yml_data = yaml.load(yml)
     md_contents = md.read()
     for string in re.findall("{{ .+ }}", md_contents):
@@ -37,7 +37,7 @@ def replace_year_book():
 
 def parse_all():
     # 替换所有markdown文件中的“{{ site.data.oss_images.word-cloud-sb2 }}”为链接
-    path = "Hexo/yuwancumian666.github.io/source/"
+    path = "Hexo/moeext.github.io/source/"
     file_list_md = os.listdir(path + "_posts")
     file_list_yml = os.listdir(path + "_data/post_images")
     yaml_data = {}

@@ -232,7 +232,11 @@ githubEmojis:
 {% note warning %} warning {% endnote %}
 {% note danger %} danger {% endnote %}
 
-
+{% note info %}
+bootstrap note2
+--------------
+里边加了分割线`-------`的话，匿名分割线上方的一行会变成同级标题
+{% endnote %}
 ## Gist
 
 `{% raw %}{% gist gist_id file_name %}{% endraw %}`

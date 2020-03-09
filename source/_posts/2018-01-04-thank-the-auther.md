@@ -4,7 +4,7 @@ title: Thank The Auther
 date: 2018-01-04 00:00:00 +0300
 description: 这篇文章用来对新主题的 markdown 样式做测试
 categories: 
-- Github Pages
+- GitHub Pages
 ---
 
 
