@@ -39,7 +39,7 @@ ERROR in Template execution failed: ReferenceError: process is not defined
 
 [saved](https://github.com/SimulatedGREG/electron-vue/issues/871#issuecomment-529809406)
 
-{% code lang:js webpack.renderer.config.js%}
+{% code lang:js webpack.renderer.config.js %}
 new HtmlWebpackPlugin({
   filename: 'index.html',
   template: path.resolve(__dirname, '../src/index.ejs'),
@@ -58,18 +58,19 @@ new HtmlWebpackPlugin({
 }),
 {% endcode %}
 
-{% code lang:js index.ejs %}
 <!-- <% if (! require('process').browser) { %>
   <script>
     if (process.env.NODE_ENV !== 'development') window.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
   </script>
 <% } %> -->
 
-<% if (!htmlWebpackPlugin.options.isBrowser && !htmlWebpackPlugin.options.isDevelopment) { %>
-    <script>
+{% code lang:js index.ejs %}
+
+&lt% if (!htmlWebpackPlugin.options.isBrowser && !htmlWebpackPlugin.options.isDevelopment) { %&gt
+    script
       window.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
-    </script>
-<% } %>
+    /script
+&lt% } %&gt
 {% endcode %}
 
 # Electron & Vue
