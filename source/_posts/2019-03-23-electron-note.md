@@ -1,5 +1,5 @@
 ---
-title: Electron-Vue开发笔记——1
+title: Electron-Vue开发笔记
 date: 2019-03-23 02:54:43
 category: 
 - [Node.js]

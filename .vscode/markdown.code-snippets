@@ -1,0 +1,51 @@
+{
+	"note": {
+		"scope": "md,markdown",
+		"prefix": "note",
+		"body": [
+			"{% note ${1|default,primary,success,info,warning,danger|} %}",
+			"$0",
+			"{% endnote %}"
+		],
+		"description": "bootstrap note"
+	},
+	"code": {
+		"scope": "md,markdown",
+		"prefix": "code",
+		"body": [
+			"{% code lang:${1|python,javascript,golang,java,csharp|} %}",
+			"$0",
+			"{% endcode %}"
+		],
+		"description": "bootstrap note"
+	},
+	"quote": {
+		"scope": "md,markdown",
+		"prefix": ["quote", "blockquote"],
+		"body": [
+			"{% blockquote %}",
+			"$0",
+			"{% endblockquote  %}"
+		],
+		"description": "bootstrap note"
+	},
+	"image": {
+		"scope": "md,markdown",
+		"prefix": ["img", "image"],
+		"body": [
+			"{% img ${1:class names} ${2:/path/to/image} ${3:width} ${4:height} '${5:title}' %}",
+		],
+		"description": "bootstrap note"
+	},
+	"group image": {
+		"scope": "md,markdown",
+		"prefix": ["img", "image"],
+		"body": [
+			"{% gp 1-${1:n} %}",
+			"$0",
+			"{% endgp  %}"
+		],
+		"description": "bootstrap note"
+	},
+
+}
