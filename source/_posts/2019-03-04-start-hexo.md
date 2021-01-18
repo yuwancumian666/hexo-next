@@ -57,13 +57,17 @@ if $highlight_theme == "night bright"
 # 配置与美化
 
 
-## 图片并排
+## 图片并排 
+
+{% note success %}
+更新到hexo-cli v4.2.0 已修复
+{% endnote %}
 
 Hexo默认情况下是不能让图片并排显示的，这里需要更改一下设置，将下方代码块的两行注释掉即可。
 Markdown中的语法`{% raw %}{% gp 1-n %} {% endgp %}{% endraw %}`，n代表需要并排的图片个数。
 
 {% note warning %}
-不可在行内使用单反引号引用标签插件，否则会被hexo理解为插入标签。
+之前不可在行内使用单反引号引用标签插件，否则会被hexo理解为插入标签。
 {% endnote %}
 
 {% codeblock lang:javascript next/source/css/_common/components/tags/group-pictures.styl %}
@@ -84,6 +88,16 @@ wrapImageWithFancyBox: function() {
       // .not('.group-picture img, .post-gallery img')
       .each(function() {
 {% endcodeblock %}
+
+## 本地资源文件夹
+
+将`_config.yml`中的`post_asset_folder`设置为true之后，并不能顺利地以`![](show.jpg)`的方式添加图片。
+需要安装"hexo-asset-image"的依赖，再将第24行代码`var endPos = link.lastIndexOf('.');`
+修改为`var endPos = link.lastIndexOf('/');`后才能正常使用。长痛不如短痛，省去了上传到图床的麻烦。
+
+{% note info %}
+[资源文件夹|Hexo](https://hexo.io/zh-cn/docs/asset-folders) [修改"hexo-asset-image"](https://github.com/xcodebuild/hexo-asset-image/issues/51)
+{% endnote %}
 
 ## 一言
 
@@ -129,12 +143,14 @@ wrapImageWithFancyBox: function() {
 
 详细内容请见该[链接](https://www.cnblogs.com/woshimrf/p/hexo-fold-block.html)
 
+``` js
 {% fold 所涉及到的文件： %}
 + themes\next\scripts\tags.js
 + themes\next\scripts\fold.js
 + themes\next\source\js\src\post-details.js
 + themes\next\source\css\_custom\custom.styl
 {% endfold %}
+```
 
 ## 网页背景
 
@@ -241,10 +257,13 @@ bootstrap note2
 
 `{% raw %}{% gist gist_id file_name %}{% endraw %}`
 
+<% gist 19169c91a19ab7580e4678e4ed25375f extensions.json %>
+
+```
 {% fold 点击查看gist %}
 网络原因打不开gist
-<% gist 19169c91a19ab7580e4678e4ed25375f extensions.json %>
 {% endfold %}
+```
 
 ## swig标签
 

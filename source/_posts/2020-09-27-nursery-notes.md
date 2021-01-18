@@ -129,7 +129,7 @@ ThreadPool.QueueUserWorkItem(delegate
 });
 ```
 
-# 功能与插件
+# 功能
 
 ## [NotifyIcon](https://handyorg.github.io/handycontrol/extend_controls/notifyIcon/)
 程序托盘图标用的是[HandyControl](https://handyorg.github.io/handycontrol/)的控件。

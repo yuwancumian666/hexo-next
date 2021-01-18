@@ -4,8 +4,8 @@
 
 # Site
 title: Hummer's Blog
-subtitle: 哝，你的鱼丸~
-description: 她的热切的脸，如夜雨似的，搅扰着我的梦魂。
+subtitle: 
+description: 我在做FancyToys
 keywords: Hummer
 author: MoeexT
 language: zh-CN
@@ -35,17 +35,20 @@ skip_render:
 new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
+external_link: # Open external links in new tab
+  enable = true
+  field = site
+  exclude = []
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: false
-  tab_replace:     
+  tab_replace: "    "
   
 # Home page setting
 # path: Root path for your blogs index page. (default = '')

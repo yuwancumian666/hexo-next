@@ -1,6 +1,7 @@
 ---
 title: FancyToys 开发笔记
 date: 2020-09-30 00:46:31
+mathjax: true
 categories:
 - .Net
 tags:
@@ -101,6 +102,16 @@ UWP拒绝直接启动进程，只能想办法绕过这个限制；
 这是最后一个困扰人的问题了
 
 
+### 托盘图标
+
+上面的不是最后一个，这个可能也不是……
+{% note default %}
+和NurseryLauncher类似，起一个WinForm进程，用它的托盘图标，同时运行退出就OK
+{% endnote %}
+
+
+
+
 ## 功能与插件
 
 ### 可拖拽区域
@@ -176,6 +187,49 @@ private void DropArea_DragOver(object sender, DragEventArgs e)
 </Page.Resources>
 ```
 
+### ListBoxItem 高度的设置
+
+一开始在VS属性栏里找不到 ListBoxItem 的设置，后来在 [这里](https://stackoverrun.com/cn/q/10504352)和 [这里](https://stackoverflow.com/questions/49637947/how-to-dynamically-change-the-height-of-listboxitem-uwp)找到了，方法很简单
+
+``` xml
+<ListBox x:Name="ProcessListBox" Background="{ThemeResource BackgroundAcrylicBrush}" 
+    ItemsSource="{Binding SwitchList}">
+    <ListBox.ItemContainerStyle>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Padding" Value="10,0,0,0"/>
+        </Style>
+    </ListBox.ItemContainerStyle>
+</ListBox>
+```
+
+
+### C#后台动态修改ListBoxItem属性
+
+我根据xaml尝试了一会没试出来，感谢这位大神 [大牛]([https://link](https://blog.csdn.net/lindexi_gd/article/details/104992276))。
+
+``` cs
+private void SetSmallFlyoutItem_Click(object sender, RoutedEventArgs e)
+{
+    ProcessListBox.ItemContainerStyle = GetStyle(HeightProperty, "32");
+}
+private Style GetStyle(DependencyProperty property, object value)
+{
+    Style style = new Style
+    {
+        TargetType = typeof(ListBoxItem)
+    };
+    style.Setters.Add(new Setter(property, value));
+    style.Setters.Add(new Setter(PaddingProperty, "10,0,0,0"));
+    ProcessListBox.ItemContainerStyle = style;
+    return style;
+}
+```
+{% note primary %}
+注意！在xaml设置的初始属性会被该方法覆盖，例如`ListBoxItem`的padding又恢复默认，需要重新给值。
+{% endnote %}
+{% img fuckme https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2020/UWP%E5%8A%A8%E6%80%81%E6%9B%B4%E6%94%B9ListBoxItem%E9%AB%98%E5%BA%A6.gif 更改ListBoxItem高度 %}
+
 ### ContentDialog输入框
 来自 [这里](https://jingyan.baidu.com/article/219f4bf7b10624de452d3857.html)
 {% note primary %}
@@ -199,7 +253,7 @@ private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDia
     Hide();
 }
 ```
-{% img 鸡你太美 https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2020/2020-10-04%20ContentDialog.jpg 1026 651 ContentDialog %}
+{% img 鸡你太美 https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2020/2020-10-04%20ContentDialog.jpg ContentDialog %}
 
 这里还有另一个从StackOverflow找到的Dialog生成方法，链接已不可考……
 
@@ -273,13 +327,93 @@ FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync();
 
 
 
-# NurseryLauncher
+# FancyServer
 
-## 问题
+## 主要工作和项目结构
+
+## 笔记
+
+### switch 判断对象 Type
+
+C#自v7.0支持模式匹配，否则需要一连串的`if else` 用 `is` 关键字判断传入类型。此外，
+`typeof`关键字、`object.GetType()`也可以对对象进行类型判断，但不如原生语法灵活。
+在[StackOverflow](https://stackoverflow.com/questions/9802325/switch-case-and-generics-checking)
+中介绍了其他的类型判断方式。
+
+{% code lang:csharp switch判断传入对象类型 https://docs.microsoft.com/en-us/dotnet/csharp/pattern-matching#conclusions 模式匹配 highlight %}
+
+public static void Send(object sdu)
+{
+    MessageStruct? pdu = null;
+    switch (sdu) 
+    {
+        case ActionStruct ass:
+            pdu = PDU(MessageType.action, JsonConvert.SerializeObject(ass));
+            break;
+        case LoggingStruct ls:
+            pdu = PDU(MessageType.logging, JsonConvert.SerializeObject(ls));
+            break;
+        case NurseryStruct ns:
+            pdu = PDU(MessageType.nursery, JsonConvert.SerializeObject(ns));
+            break;
+        case SettingStruct ss:
+            pdu = PDU(MessageType.setting, JsonConvert.SerializeObject(ss));
+            break;
+        default:
+            LoggingManager.Error("Invalid message SDU type");
+            break;
+    }
+    if (pdu != null)
+    {
+        PipeMessenger.Post(JsonConvert.SerializeObject(pdu));
+    }
+}
+{% endcode %}
+
+### 修改托盘图标菜单样式
+[Stackoverflow](https://stackoverflow.com/questions/15926377/change-the-backcolor-of-the-toolstripseparator-control)
+
+![注意阴影](GrayBackColor.jpg)
+
+大多软件的托盘图标菜单都是纯白的，ContextMenuStrip的默认样式与之相比有点过时，这里需要修改
+MenuItem的BackColor属性，但是ToolMenuStripSeparator的BackColor属性在渲染的时候被忽略（或覆盖）了，
+需要在separator的Paint事件上加点料：
+
+``` cs
+private void mnuToolStripSeparator_Custom_Paint (Object sender, PaintEventArgs e)
+{
+    ToolStripSeparator sep = (ToolStripSeparator)sender;
+
+    e.Graphics.FillRectangle(new SolidBrush(CUSTOM_COLOR_BACKGROUND), 0, 0, sep.Width, sep.Height);
+
+    e.Graphics.DrawLine(new Pen(CUSTOM_COLOR_FOREGROUND), 30, sep.Height / 2, sep.Width - 4, sep.Height / 2);
+
+}
+```
+
+### ContextMenuStrip的部分结构
+
+遍历 `ToolStripMenuItem.DropDownItems` 时要区分 `ToolStripSeparator` 和 `ToolStripDropDownItem` 类型
+
+{% mermaid stateDiagram-v2  %}
+ContextMenuStrip --> ToolStripMenuItem
+ToolStripMenuItem --> DropDownItems(ToolStripItemCollection)
+state DropDownItems(ToolStripItemCollection) {
+    ToolStripItem --> ToolStripSeparator
+    ToolStripItem --> ToolStripDropDownItem
+}
+{% endmermaid %}
+
+
+## Obsolete notes
 
 ### 父进程退出后（子进程不退出）端口不释放
 
+{% note info %}
+这个问题出自原来的“NurseryLauncher”，现在提供win32服务的是"FancyServer"。与前者相比，
+后者结构更加清晰，功能也更加完善。
+{% endnote %}
+
 `NurseryLauncher.exe`（绑定626端口）启动 `puppet.exe`（80端口）后，再手动关闭`NurseryLauncher.exe`，
 从下图可以看出，根据端口查看进程，有pid存在，但是没有该进程。查子进程`puppet.exe`一切正常。这样导致的问题是：下次`NurseryLauncher.exe`因为端口占用不能正常启动
-{% img https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2020/2020-10-03%20%E7%88%B6%E8%BF%9B%E7%A8%8B%E9%80%80%E5%87%BA%E4%B8%8D%E9%87%8A%E6%94%BE%E7%AB%AF%E5%8F%A3.jpg 1150  346 父进程退出但没有释放端口 %}
-
+{% img https://github-pages-1253649638.cos.ap-beijing.myqcloud.com/post-images/2020/2020-10-03%20%E7%88%B6%E8%BF%9B%E7%A8%8B%E9%80%80%E5%87%BA%E4%B8%8D%E9%87%8A%E6%94%BE%E7%AB%AF%E5%8F%A3.jpg  父进程退出但没有释放端口 %}

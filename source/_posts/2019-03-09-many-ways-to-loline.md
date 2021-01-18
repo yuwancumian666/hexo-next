@@ -38,6 +38,8 @@ tags:
 {% endcode %}
 
 下边是相应的属性设置，但实际上和之前一言设置都差不多。
+
+``` js
 {% fold 点击查看 %}
 
 {% code lang:html next\layout\_macro\sidebar.swig %}
@@ -53,6 +55,7 @@ tags:
       <div style="height: 15px"></div>
 {% endcode %}
 {% endfold %}
+```
 
 ## 直链访问
 
@@ -80,6 +83,7 @@ $.get("https://raw.githubusercontent.com/.../champions.json", function (data) {
 
 ## blockquote-loline样式
 
+``` js
 {% fold 查看代码： %}
 
 {% code lang:styl next\source\css\_common\components\tags\blockquote-center.styl %}
@@ -117,6 +121,7 @@ $.get("https://raw.githubusercontent.com/.../champions.json", function (data) {
 }
 {% endcode %}
 {% endfold %}
+```
 
 ## 设置base变量
 
