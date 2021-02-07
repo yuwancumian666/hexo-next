@@ -14,7 +14,7 @@ comments: true
 
 <!-- more -->
 
-# 填坑
+# 问题
 
 ## Markdown中不能使用变量
 
@@ -53,11 +53,9 @@ if $highlight_theme == "night bright"
   // ……
 {% endcodeblock %}
 
+## 插入图片
 
-# 配置与美化
-
-
-## 图片并排 
+### 图片并排 
 
 {% note success %}
 更新到hexo-cli v4.2.0 已修复
@@ -89,15 +87,49 @@ wrapImageWithFancyBox: function() {
       .each(function() {
 {% endcodeblock %}
 
-## 本地资源文件夹
+### 插入本地资源文件夹中的图片
 
 将`_config.yml`中的`post_asset_folder`设置为true之后，并不能顺利地以`![](show.jpg)`的方式添加图片。
 需要安装"hexo-asset-image"的依赖，再将第24行代码`var endPos = link.lastIndexOf('.');`
-修改为`var endPos = link.lastIndexOf('/');`后才能正常使用。长痛不如短痛，省去了上传到图床的麻烦。
+修改为`var endPos = link.lastIndexOf('/');`后才能正常使用。
 
 {% note info %}
 [资源文件夹|Hexo](https://hexo.io/zh-cn/docs/asset-folders) [修改"hexo-asset-image"](https://github.com/xcodebuild/hexo-asset-image/issues/51)
 {% endnote %}
+
+## 字体
+
+更新至hexo-next v7.8.0，文章字号大了一圈，涂涂改改两天才得到差不多的效果。
+以下文件分别修改了文章正文、标题、代码的字号。
+
+{% code themes\next\source\css\_common\components\post\post.styl lang:css %}
++desktop-large() {
+  font-size: $font-size-small;
+}
+{% endcode %}
+
+{% code themes\next\source\css\_common\components\post\post-header.styl lang:css %}
+.posts-expand .post-title {
+  font-size: $font-size-larger;
+  font-weight: normal;
+  margin: initial;
+  text-align: center;
+  word-wrap();
+}
+{% endcode %}
+
+{% code themes\next\source\css\_common\scaffolding\highlight\highlight.styl lang:css %}
+pre {
+  @extend $code-block;
+  font-size: 1.125em;  // [line100]添加一行，覆盖其他设置
+  overflow: auto;
+  padding: 10px;
+}
+{% endcode %}
+
+
+
+# 功能与插件
 
 ## 一言
 
@@ -213,11 +245,17 @@ body {
 {% endcode %}
 
 ## jemoji
+
 给Hexo添加对表情的支持，使用的是[Github Emojis API](https://api.github.com/emojis)
+
 ### 安装
+
 `$ npm install hexo-filter-github-emojis --save`
+
 ### 选项
+
 在Hexo配置文件`_config.yml`中添加默认设置：
+
 ``` yaml
 githubEmojis:
   enable: true
@@ -226,6 +264,7 @@ githubEmojis:
   styles:
   customEmojis:
 ```
+
 {% note info %}
 如果对`::`添加表情的方式不感冒，可以尝试使用`{% raw %}{% github_emoji sparkles %}{% endraw %}`方式添加表情:tada:
 {% endnote %}
@@ -233,8 +272,6 @@ githubEmojis:
 {% note info %}
 在front-matter中添加`no-emoji: true`可以禁用`::`的渲染，但`{% raw %}{% github_emoji sparkles %}{% endraw %}`不会被禁用{% github_emoji sparkles %}
 {% endnote %}
-
-# 标签插件
 
 ## bootstrap note
 
@@ -253,6 +290,7 @@ bootstrap note2
 --------------
 里边加了分割线`-------`的话，匿名分割线上方的一行会变成同级标题
 {% endnote %}
+
 ## Gist
 
 `{% raw %}{% gist gist_id file_name %}{% endraw %}`
@@ -280,7 +318,9 @@ content
 ## 浮动插入图片，[像这个](https://notes.iissnan.com/2016/next-documentations-reload/#前季剧情回顾)
 
 ## 无法访问404
+
 只能以`localhost:4000/404.html`的方式访问
 
 ## 本页侧边栏
+
 滑到最上方，然后向右看:point_right:

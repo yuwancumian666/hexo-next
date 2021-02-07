@@ -17,7 +17,7 @@
 			"$0",
 			"{% endcode %}"
 		],
-		"description": "bootstrap note"
+		"description": "{% codeblock [title] [lang:language] [url] [link text] [additional options] %}"
 	},
 	"quote": {
 		"scope": "md,markdown",
